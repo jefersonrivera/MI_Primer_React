@@ -1,16 +1,20 @@
-import Navbar from "./components/Navbar";
+import Navbar from "./components/navbar";
 import Footer from "./components/Footer";
 import Header from "./components/Header";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { Row, Col } from "react-bootstrap";
 import CardPizza from "./components/CardPizza";
+import Register from "./components/Register";
+import Login from "./components/Login";
 
 function App() {
   return (
     <div>
       <Navbar></Navbar>
       <Header></Header>
-      <Row>
+      <Register></Register>
+      <Login></Login>
+      {/*<Row>
         <Col>
           <CardPizza
             nombre="4 quesos"
@@ -35,7 +39,7 @@ function App() {
             precio={6950}
           ></CardPizza>
         </Col>
-      </Row>
+      </Row>*/}
 
       <Footer></Footer>
     </div>
