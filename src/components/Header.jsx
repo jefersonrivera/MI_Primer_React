@@ -5,8 +5,8 @@ const Header = () => {
     <div className="header">
       <div className="background-overlay"></div>
       <div className="header-content">
-        <h1>Pizzeria Mamma Mia </h1>
-        <p>¡Tenemos las mejores pizzas que podran encontrar!</p>
+        <h1>¡Pizzeria Mamma Mia!</h1>
+        <p>¡Tenemos las mejores pizzas que podras encontrar!</p>
       </div>
     </div>
   );
