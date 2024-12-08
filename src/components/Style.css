@@ -1,0 +1,32 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden; /* Evita el scroll horizontal */
+}
+
+.header-container {
+  position: relative;
+  height: 50vh;
+  width: 100%; /* Asegura que el contenedor ocupe el ancho completo */
+  overflow: hidden; /* Previene cualquier desbordamiento */
+}
+
+.header-container::before {
+  content: "";
+
+  top: 0;
+  left: 0;
+  width: 100%; /* Ajusta el ancho al contenedor */
+  height: 100%;
+  background-image: url("../assets/images/background.jpg");
+  background-size: cover;
+  background-position: center;
+  opacity: 0.5;
+  z-index: -1;
+}

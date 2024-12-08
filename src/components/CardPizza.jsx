@@ -1,6 +1,3 @@
-import React from "react";
-import { Button, Card } from "react-bootstrap";
-
 const CardPizza = ({ pizza }) => {
   return (
     <div className="card mx-2 my-3" style={{ width: "18rem" }}>
@@ -17,11 +14,10 @@ const CardPizza = ({ pizza }) => {
         <p>
           <strong>Precio:</strong> ${pizza.price.toLocaleString()}
         </p>
-        <Button variant="light">Ver mas</Button>
-        <Button variant="dark">Añadir</Button>
+        <button className="btn btn-primary">Ver más</button>
+        <button className="btn btn-success mx-2">Añadir</button>
       </div>
     </div>
   );
 };
-
 export default CardPizza;

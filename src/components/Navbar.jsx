@@ -1,61 +1,33 @@
-import React from "react";
-import { Button } from "react-bootstrap";
-import { format } from "../format";
-import { IoCartOutline } from "react-icons/io5";
-import { CgProfile } from "react-icons/cg";
-import { FaPizzaSlice } from "react-icons/fa";
-import { IoIosLogIn } from "react-icons/io";
-import { SiGnuprivacyguard } from "react-icons/si";
-import { IoIosLogOut } from "react-icons/io";
+import "./Style.css";
 
-function Navbar() {
+const Navbar = () => {
   const total = 25000;
-  const token = true;
+  const token = false;
+
   return (
-    <div className="d-flex justify-content-between bg-dark text-light">
-      <div>
+    <nav className="container-fluid p-0 navbar navbar-expand-lg navbar-dark bg-dark px-4">
+      <a className="navbar-brand" href="#">
+        🍕 Pizzería Mamma Mía
+      </a>
+      <div className="ms-auto d-flex align-items-center">
+        <button className="btn btn-outline-light mx-1">🍕 Home</button>
         {token ? (
-          <div className="d-flex align-items-center">
-            <p className="m-1">Pizzería Mamma Mia!</p>
-            <Button variant="outline-light" className="btn-sm m-1 bg-dark">
-              <FaPizzaSlice />
-              Home
-            </Button>
-            <Button variant="outline-light" className="btn-sm m-1 bg-dark">
-              <IoIosLogIn />
-              Login
-            </Button>
-            <Button variant="outline-light" className="btn-sm m-1 bg-dark">
-              <SiGnuprivacyguard />
-              Register
-            </Button>
-          </div>
+          <>
+            <button className="btn btn-outline-light mx-1">🔓 Profile</button>
+            <button className="btn btn-outline-danger mx-1">🔒 Logout</button>
+          </>
         ) : (
-          <div className="m-1 d-flex">
-            <p className="m-3">Pizzería Mamma Mia!</p>
-            <Button variant="outline-light" className=" btn-sm m-1 bg-dark">
-              <FaPizzaSlice />
-              Home
-            </Button>
-            <Button variant="outline-light" className="btn-sm m-1 bg-dark">
-              <CgProfile />
-              Profile
-            </Button>
-            <Button variant="outline-light" className="btn-sm m-1 bg-dark">
-              <IoIosLogOut />
-              Logout
-            </Button>
-          </div>
+          <>
+            <button className="btn btn-outline-success mx-1">🔐 Login</button>
+            <button className="btn btn-outline-info mx-1">🔐 Register</button>
+          </>
         )}
+        <button className="btn btn-warning mx-1">
+          🛒 Total: ${total.toLocaleString()}
+        </button>
       </div>
-      <div className="d-flex m-1">
-        <Button variant="outline-info" className="btn-sm bg-dark">
-          <IoCartOutline />
-          Total: ${format(total)}
-        </Button>
-      </div>
-    </div>
+    </nav>
   );
-}
+};
 
 export default Navbar;

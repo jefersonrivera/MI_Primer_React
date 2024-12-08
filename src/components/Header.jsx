@@ -1,14 +1,25 @@
 import React from "react";
-import "./Banner.css";
+import backgroundImage from "../assets/imgs/Header.jpg";
+import "./Style.css";
 const Header = () => {
   return (
-    <div className="header">
-      <div className="background-overlay"></div>
-      <div className="header-content">
-        <h1>¡Pizzeria Mamma Mia!</h1>
-        <p>¡Tenemos las mejores pizzas que podras encontrar!</p>
-      </div>
-    </div>
+    <header
+      className="text-white text-center d-flex flex-column justify-content-center align-items-center"
+      style={{
+        backgroundImage: `url(${backgroundImage})`,
+        backgroundSize: "cover",
+        backgroundPosition: "center",
+        height: "50vh",
+      }}
+    >
+      <h1 className="display-4 text-shadow">
+        ¡Bienvenidos a Pizzería Mamma Mía!
+      </h1>
+      <p className="lead text-shadow">
+        Las mejores pizzas al alcance de un clic. ¡Prueba nuestros sabores
+        únicos!
+      </p>
+    </header>
   );
 };
 
