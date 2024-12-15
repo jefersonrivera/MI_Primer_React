@@ -6,7 +6,6 @@ const Header = () => {
     <header
       className="text-white text-center d-flex flex-column justify-content-center align-items-center"
       style={{
-        backgroundImage: `url(${backgroundImage})`,
         backgroundSize: "cover",
         backgroundPosition: "center",
         height: "50vh",
