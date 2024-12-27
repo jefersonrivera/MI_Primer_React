@@ -8,26 +8,29 @@ import Pizza from "./pages/Pizza";
 import { Route, Routes } from "react-router-dom";
 import Profile from "./pages/Profile";
 import NotFound from "./pages/NotFound";
+import CartProvider from "./context/CartContext";
 
 const App = () => {
   return (
     <>
-      <Navbar />
-      <Routes>
-        <Route path="/" element={<Home />} />
+      <CartProvider>
+        <Navbar />
+        <Routes>
+          <Route path="/" element={<Home />} />
 
-        <Route path="/register" element={<Register />} />
+          <Route path="/register" element={<Register />} />
 
-        <Route path="/login" element={<Login />} />
+          <Route path="/login" element={<Login />} />
 
-        <Route path="/cart" element={<Cart />} />
+          <Route path="/cart" element={<Cart />} />
 
-        <Route path="/pizza/p001" element={<Pizza />} />
+          <Route path="/pizza/p001" element={<Pizza />} />
 
-        <Route path="/profile" element={<Profile />} />
-        <Route path="*" element={<NotFound />} />
-      </Routes>
-      <Footer />
+          <Route path="/profile" element={<Profile />} />
+          <Route path="*" element={<NotFound />} />
+        </Routes>
+        <Footer />
+      </CartProvider>
     </>
   );
 };

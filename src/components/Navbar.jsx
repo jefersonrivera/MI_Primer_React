@@ -1,9 +1,10 @@
-import "./Style.css";
-
 import { Link } from "react-router-dom";
+import "./Style.css";
+import { useContext } from "react";
+import { CartContext } from "../context/CartContext";
 
 const Navbar = () => {
-  const total = 25000;
+  const { totalCart } = useContext(CartContext);
   const token = false;
 
   return (
@@ -36,7 +37,7 @@ const Navbar = () => {
           </>
         )}
         <Link to="/cart" className="btn btn-warning mx-1">
-          🛒 Total: ${total.toLocaleString()}
+          🛒 Total: ${totalCart.toLocaleString()}
         </Link>
       </div>
     </nav>
