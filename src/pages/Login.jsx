@@ -1,39 +1,16 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
+import { UserContext } from "../context/UserContext";
 
 const LoginPage = () => {
-  const [formData, setFormData] = useState({
-    email: "",
-    password: "",
-  });
-
-  const [message, setMessage] = useState("");
-
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-    setFormData({ ...formData, [name]: value });
-  };
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    const { email, password } = formData;
-
-    // Validaciones
-    if (!email || !password) {
-      setMessage("Todos los campos son obligatorios.");
-      return;
-    }
-    if (password.length < 6) {
-      setMessage("La contraseña debe tener al menos 6 caracteres.");
-      return;
-    }
-
-    setMessage("¡Inicio de sesión exitoso!");
-  };
+  const { email, setEmail } = useContext(UserContext);
+  const { password, setPassword, handleLogin } = useContext(UserContext);
+  const { error } = useContext(UserContext);
 
   return (
     <div className="d-flex pt-5  flex-column align-items-center ">
       <h2>Login</h2>
-      <form onSubmit={handleSubmit}>
+      <form onSubmit={handleLogin}>
+        {error && <p className="text-danger">{error}</p>}
         <div
           className="p-2
         "
@@ -43,8 +20,8 @@ const LoginPage = () => {
           <input
             type="email"
             name="email"
-            value={formData.email}
-            onChange={handleChange}
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
           />
         </div>
         <div className="p-2">
@@ -53,8 +30,8 @@ const LoginPage = () => {
           <input
             type="password"
             name="password"
-            value={formData.password}
-            onChange={handleChange}
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
           />
         </div>
 
@@ -62,8 +39,6 @@ const LoginPage = () => {
           <button type="submit">Iniciar Sesión</button>
         </div>
       </form>
-
-      {message && <p>{message}</p>}
     </div>
   );
 };

@@ -1,11 +1,16 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 
 import "bootstrap/dist/css/bootstrap.min.css";
+import { useParams } from "react-router-dom";
+import { CartContext } from "../context/CartContext";
+import { Button } from "react-bootstrap";
 
 const Pizza = () => {
-  const [pizza, setPizza] = useState({ ingredients: [] });
+  const [pizza, setPizza] = useState({});
+  const { id } = useParams();
+  const { incrementCount } = useContext(CartContext);
   useEffect(() => {
-    fetch("http://localhost:5000/api/pizzas/p002")
+    fetch(`http://localhost:5000/api/pizzas/${id}`)
       .then((res) => res.json())
       .then((data) => {
         setPizza(data);
@@ -25,15 +30,19 @@ const Pizza = () => {
           </p>
           <p>
             Ingredientes:{" "}
-            {pizza.ingredients.map((ingredients, index) => {
-              return <li className="fw-light">{ingredients}</li>;
-            })}
+            {pizza.ingredients?.join(", ") || "No ingredients listed."}
           </p>
           <p>{pizza.desc}</p>
         </div>
       </div>
       <div className="d-flex justify-content-center mb-4">
-        <button>Añadir al carrito</button>
+        <Button
+          variant="dark"
+          size="md"
+          onClick={() => incrementCount(pizza.id)}
+        >
+          Añadir al carrito
+        </Button>
       </div>
     </div>
   );

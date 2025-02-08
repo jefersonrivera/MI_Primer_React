@@ -50,7 +50,6 @@ export const pizzas = [
 ];
 
 // Simulación de un carrito de compras
-
 export const pizzaCart = [
   {
     id: "P001",

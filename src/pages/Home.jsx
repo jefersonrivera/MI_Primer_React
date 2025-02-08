@@ -1,17 +1,18 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import Header from "../components/Header";
 import CardPizza from "../components/CardPizza";
 import { pizzas } from "../data/pizzas";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { Col, Container, Row } from "react-bootstrap";
+import { CartContext } from "../context/CartContext";
 
 const Home = () => {
-  const [pizza, setPizza] = useState([]);
+  const { pizzas, setPizzas } = useContext(CartContext);
   useEffect(() => {
     fetch("http://localhost:5000/api/pizzas")
       .then((res) => res.json())
       .then((data) => {
-        setPizza(data);
+        setPizzas(data);
       });
   });
   return (
@@ -20,7 +21,7 @@ const Home = () => {
 
       <Container className="justify-content-between">
         <Row className="p-4 pt-5 pb-5 ">
-          {pizza.map((pizza) => (
+          {pizzas.map((pizza, index) => (
             <Col
               sm="12"
               md="6"

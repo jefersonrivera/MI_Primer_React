@@ -24,7 +24,7 @@ body {
   left: 0;
   width: 100%; /* Ajusta el ancho al contenedor */
   height: 100%;
-  background-image: url("../assets/img/Header.jpg");
+  background-image: url("../assets/images/background.jpg");
   background-size: cover;
   background-position: center;
   opacity: 0.5;

@@ -2,19 +2,18 @@ import { Link } from "react-router-dom";
 import "./Style.css";
 import { useContext } from "react";
 import { CartContext } from "../context/CartContext";
+import { UserContext } from "../context/UserContext";
 
 const Navbar = () => {
   const { totalCart } = useContext(CartContext);
-  const token = false;
+  const { token, logout } = useContext(UserContext);
 
   return (
     <nav className="container-fluid p-0 navbar navbar-expand-lg navbar-dark bg-dark px-4">
       <a className="navbar-brand" href="#">
         🍕 Pizzería Mamma Mía
       </a>
-      <Link to="/profile" className="btn btn-outline-light mx-1">
-        Profile
-      </Link>
+
       <div className="ms-auto d-flex align-items-center">
         <Link to="/" className="btn btn-outline-light mx-1">
           🍕 Home
@@ -24,7 +23,13 @@ const Navbar = () => {
             <Link to="/profile" className="btn btn-outline-light mx-1">
               🔓 Profile
             </Link>
-            <button className="btn btn-outline-danger mx-1">🔒 Logout</button>
+            <Link
+              variant="outline-light"
+              className="btn btn-sm m-1 bg-dark text-decoration-none text-light border-light"
+              onClick={logout}
+            >
+              🔒 Logout
+            </Link>
           </>
         ) : (
           <>
